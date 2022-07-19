@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -32,6 +31,6 @@ app.use((req, res, next) => {
   console.log("Réponse envoyée avec succès !");
 });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 module.exports = app;
