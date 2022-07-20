@@ -1,18 +1,10 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const helmet = require("helmet");
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });
+require("./config/database");
 
 const userRoutes = require("./routes/user");
 const path = require("path");
-
-mongoose
-  .connect(process.env.SECRET_DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Connexion à MongoDB réussie !"))
-  .catch(() => console.log("Connexion à MongoDB échouée !"));
 
 const app = express();
 
