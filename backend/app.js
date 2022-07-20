@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const helmet = require("helmet");
 require("dotenv").config();
 
+const path = require("path");
+
 mongoose
   .connect(process.env.SECRET_DB, {
     useNewUrlParser: true,
@@ -13,24 +15,7 @@ mongoose
 
 const app = express();
 
-app.use((req, res, next) => {
-  console.log("Requête reçue !");
-  next();
-});
-
-app.use((req, res, next) => {
-  res.status(201);
-  next();
-});
-
-app.use((req, res, next) => {
-  res.json({ message: "Votre requête a bien été reçue !" });
-  next();
-});
-
-app.use((req, res, next) => {
-  console.log("Réponse envoyée avec succès !");
-});
+app.use(express.json());
 
 app.use(helmet());
 app.use((req, res, next) => {
@@ -46,6 +31,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 module.exports = app;
