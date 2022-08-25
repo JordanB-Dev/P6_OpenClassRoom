@@ -12,6 +12,8 @@ passwordSchema
   .has()
   .lowercase()
   .has()
+  .symbols(1)
+  .has()
   .digits()
   .has()
   .not()
