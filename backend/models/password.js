@@ -4,17 +4,19 @@ const passwordSchema = new passwordValidator();
 
 passwordSchema
   .is()
-  .min(10)
+  .min(8)
   .is()
-  .max(64)
+  .max(20)
   .has()
-  .uppercase()
+  .uppercase(1)
   .has()
   .lowercase()
   .has()
   .symbols(1)
   .has()
-  .digits()
+  .digits(2)
+  .is()
+  .not(/[\]()[{}<>`'"/:;,=]/) // caractére no autorisé [\]()[{}<>`'"/:;,=] puis caractére autoriser ! @ # $ % ^ & * - + . ? |
   .has()
   .not()
   .spaces()
