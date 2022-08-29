@@ -12,6 +12,9 @@ const userCtrl = require("../controllers/user");
 const checkPassword = require("../middleware/checkPassword");
 const checkEmail = require("../middleware/checkEmail");
 
+/*****************************************************
+ ** Route user
+ ******************************************************/
 router.post("/signup", checkEmail, checkPassword, userCtrl.signup);
 router.post("/login", limiter, userCtrl.login);
 

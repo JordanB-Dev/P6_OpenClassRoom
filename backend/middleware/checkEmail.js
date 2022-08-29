@@ -1,3 +1,6 @@
+/*****************************************************
+ ** Middleware qui vérifie que c'est bien une email
+ ******************************************************/
 module.exports = (req, res, next) => {
   const validEmail = (email) => {
     let emailRegexp =

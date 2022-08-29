@@ -4,6 +4,9 @@ const jwt = require("jsonwebtoken");
 const cryptoJS = require("crypto-js");
 require("dotenv").config();
 
+/*****************************************************
+ ** SIGNUP
+ ******************************************************/
 exports.signup = (req, res, next) => {
   const hashEmail = cryptoJS
     .HmacSHA512(req.body.email, process.env.CRYPTOJS_TOKEN)
@@ -26,6 +29,9 @@ exports.signup = (req, res, next) => {
     });
 };
 
+/*****************************************************
+ ** LOGIN
+ ******************************************************/
 exports.login = (req, res, next) => {
   const hashEmail = cryptoJS
     .HmacSHA512(req.body.email, process.env.CRYPTOJS_TOKEN)

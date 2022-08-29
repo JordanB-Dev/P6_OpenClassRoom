@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+/*****************************************************
+ ** Schema Model des sauces
+ ******************************************************/
 const sauceSchema = mongoose.Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },

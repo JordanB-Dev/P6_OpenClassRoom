@@ -1,6 +1,9 @@
 const Sauce = require("../models/sauce");
 const fs = require("fs");
 
+/*****************************************************
+ ** GETALLSAUCE accède à toutes les sauces
+ ******************************************************/
 exports.getAllSauce = (req, res, next) => {
   Sauce.find()
     .then((sauces) => {
@@ -9,12 +12,18 @@ exports.getAllSauce = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
+/*****************************************************
+ ** GEGETONESAUCE accède à une sauce
+ ******************************************************/
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => res.status(200).json(sauce))
     .catch((error) => res.status(404).json({ error }));
 };
 
+/*****************************************************
+ ** CREATESAUCE crée une sauce
+ ******************************************************/
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
@@ -34,6 +43,9 @@ exports.createSauce = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
+/*****************************************************
+ ** MODIFYSAUCE modifie une sauce
+ ******************************************************/
 exports.modifySauce = (req, res, next) => {
   let sauceObject = {};
   req.file
@@ -58,6 +70,9 @@ exports.modifySauce = (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 };
 
+/*****************************************************
+ ** DELETESAUCE supprime une sauce
+ ******************************************************/
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
@@ -71,6 +86,9 @@ exports.deleteSauce = (req, res, next) => {
     .catch((error) => res.status(500).json({ error }));
 };
 
+/*****************************************************
+ ** LIKESAUCE  like une sauce
+ ******************************************************/
 exports.likeSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {

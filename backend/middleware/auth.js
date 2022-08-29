@@ -1,3 +1,7 @@
+/*****************************************************
+ ** Middleware qui vérifie que l'utilisateur est
+ ** authentifié avant d'autoriser l'envoi de ses requêtes.
+ ******************************************************/
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 

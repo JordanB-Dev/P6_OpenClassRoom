@@ -1,4 +1,8 @@
 const multer = require("multer");
+
+/*****************************************************
+ ** Middleware vérifie que c'est des images
+ ******************************************************/
 const MIME_TYPES = {
   "image/jpg": "jpg",
   "image/jpeg": "jpg",

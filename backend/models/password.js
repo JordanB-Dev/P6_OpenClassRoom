@@ -2,6 +2,9 @@ const passwordValidator = require("password-validator");
 
 const passwordSchema = new passwordValidator();
 
+/*****************************************************
+ ** le modèle du mot de passe
+ ******************************************************/
 passwordSchema
   .is()
   .min(8)
@@ -16,7 +19,7 @@ passwordSchema
   .has()
   .digits(2)
   .is()
-  .not(/[\]()[{}<>`'"/:;,=]/) // caractére no autorisé [\]()[{}<>`'"/:;,=] puis caractére autoriser ! @ # $ % ^ & * - + . ? |
+  .not(/[\]()[{}<>`'"/:;,=]/) // caractére non autorisé [\]()[{}<>`'"/:;,=] puis caractére autorisé ! @ # $ % ^ & * - + . ? |
   .has()
   .not()
   .spaces()
